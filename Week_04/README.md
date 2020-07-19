@@ -85,3 +85,27 @@ DFS 和 BFS 不只用于简单的遍历一颗树，或者说有时候问题不�
 还有一类二分查找是半有序的，也就是一个数组中间阶段进行翻转，这种要注意找到判断的边界。
 
 
+##### 二分查找旋转数组无序位置
+
+```java
+public static int findHalfOrderPosition(int[] nums){
+
+    if(nums == null){
+        return -1;
+    }
+    // 无序数组的话，无序的位置肯定不在第 0 位，所以从 1 开始，避免数组越界
+    int left = 1,right = nums.length - 1;
+    
+    while(left <= right){
+        int mid = left + (right - left) / 2;
+        if(nums[mid] < nums[mid - 1] && nums[mid] < nums[mid + 1]) {
+            return mid;
+        } else if (nums[mid] > nums[0] && nums[mid] > nums[right]) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+```
