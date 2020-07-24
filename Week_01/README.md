@@ -51,6 +51,9 @@ Queue 提供了两组 API :
 
 它同时有 Stack 和 Queue 的方法
 
+在 Java 中推荐使用 Deque（实现类 ArrayDeque）来替代 Stack 因为，Stack 继承的是 Vector 它的设计是不完善的，因为它是数组，有扩容问题，如果频繁扩容性能会比价低。
+而 Deque 实现类都是链表，所以性能会更好。
+
 #### Priority Queue
 
 优先队列，它跟上面的数据结构不同，它可以取出的时候按照设定的优先级顺序取出。它底层的数据结构复杂多样，可能是 heap、红黑树、AVL 等。
